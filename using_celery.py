@@ -1,4 +1,4 @@
-from celery import celery
+from celery import Celery
 
 app = Celery('using_celery', broker='pyamqp://ubuntu@localhost//')
 
