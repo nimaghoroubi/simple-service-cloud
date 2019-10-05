@@ -21,4 +21,4 @@ def reverse(string):
     return string[::-1]
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', debug=TRUE)
+    app.run('0.0.0.0')
