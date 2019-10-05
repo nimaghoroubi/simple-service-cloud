@@ -1,17 +1,28 @@
-#returns server time with time_getter
+#first try to merge celery and flask
 
 from flask import Flask
-import subprocess
-from time_getter import time_getter
-
+from flask-celery import make_celery
 
 app = Flask(__name__)
+app.config['CELERY_BROKER_URL'] = 'amqp://localhost//'
+app.config['CELERY_RESULT_BACKEND'] = 'amqp://localhost//'
 
-@app.route('/')
-def time_print_function():
+celery = make_celery(app)
+
+@app.route('/<name>')
+def time_print_function(name):
+
     data = time_getter()
     data = "your time is " + str(data) + "\n"
+
+    reverse.delay(name)
+
     return data
 
+
+@celery.task(name='service.reverse')
+def reverse(string):
+    return string[::-1]
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run('0.0.0.0', debug=TRUE)
