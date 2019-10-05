@@ -9,9 +9,9 @@ app.config['CELERY_RESULT_BACKEND'] = 'amqp://localhost//'
 
 celery = make_celery(app)
 
-@app.route('/')
-def time_print_function():
-    reverse.delay('item_test')
+@app.route('/<name>')
+def time_print_function(name):
+    reverse.delay(name)
 
     return 'request successful'
 
