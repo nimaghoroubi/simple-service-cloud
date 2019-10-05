@@ -12,7 +12,7 @@ celery = make_celery(app)
 
 @app.route('/')
 def counter_function():
-    item = count_implementation()
+    count_implementation.delay()
     return item
 
 
