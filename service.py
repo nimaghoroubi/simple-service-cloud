@@ -11,9 +11,9 @@ app.config['CELERY_RESULT_BACKEND'] = 'amqp://localhost//'
 celery = make_celery(app)
 
 @app.route('/')
-def time_print_function(name):
-    reverse.delay(name)
-    return 'request submitted'
+def counter_function():
+    item = count_implementation()
+    return item
 
 
 @celery.task(name='service.count')
