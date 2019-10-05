@@ -18,3 +18,5 @@ sudo apt -y install python-flask
 echo "*****************************/\*********************************"
 celery --version
 openstack --version
+git clone https://github.com/nimaghoroubi/simple-service-cloud
+screen python ~/simple-service-cloud/service.py
