@@ -9,15 +9,11 @@ app.config['CELERY_RESULT_BACKEND'] = 'amqp://localhost//'
 
 celery = make_celery(app)
 
-@app.route('/<name>')
-def time_print_function(name):
+@app.route('/')
+def time_print_function():
+    reverse.delay('item_test')
 
-    data = time_getter()
-    data = "your time is " + str(data) + "\n"
-
-    reverse.delay(name)
-
-    return data
+    return 'request successful'
 
 
 @celery.task(name='service.reverse')
