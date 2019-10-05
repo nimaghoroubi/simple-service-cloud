@@ -1,4 +1,4 @@
-#first try to merge celery and flask
+#Placeholder in place
 
 from flask import Flask
 from flask_celery import make_celery
