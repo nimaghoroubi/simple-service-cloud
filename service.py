@@ -13,7 +13,7 @@ celery = make_celery(app)
 @app.route('/')
 def counter_function():
     count_implementation.delay()
-    return item
+    return "job queued"
 
 
 @celery.task(name='service.count')
