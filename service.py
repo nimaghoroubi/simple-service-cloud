@@ -6,7 +6,8 @@ app = Flask(__name__)
 @app.route('/')
 def time_print_function():
     data = time_getter()
-    return str(data)
+    data = "your time is " + str(data) + "\n"
+    return data
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
