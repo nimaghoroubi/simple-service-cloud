@@ -19,7 +19,7 @@ sudo apt -y install python-flask &&
 echo "services ready, cloning repo"
 git clone https://github.com/nimaghoroubi/simple-service-cloud &&
 echo "clone complete! running services!"
-python ~/simple-service-cloud/service.py &\
-celery -A service.celery worker --loglevel=info
+screen -dm python ~/simple-service-cloud/service.py
+screem -dm celery -A service.celery worker --loglevel=info
 echo "services up and running, use http://ip:5000/<item>"
 echo "ending ******************************************************************"
