@@ -1,9 +1,9 @@
+import json
+import tarfile
+
 def twitter_api():
-    import json
     count = 0
     retweet_lock = 0
-
-
     ## the results
     han = 0
     hon = 0
@@ -12,10 +12,13 @@ def twitter_api():
     det = 0
     denna = 0
     denne = 0
-
     ## script
-
-    with open("./0ecdf8e0-bc1a-4fb3-a015-9b8dc563a92f") as fp:
+    limit = 0
+    #reading tarfile
+    tar = tarfile.open("data.tar.gz", "r:gz")
+    members = tar.getmembers()
+    for member in members:
+        fp = tar.extractfile(member)
         big_data = fp.readlines()
         for line in big_data:
             if len(line)>5:
@@ -60,7 +63,3 @@ def twitter_api():
 
     to_json= json.dumps(result)
     return to_json
-
-
-r_value = twitter_api()
-print(r_value)
