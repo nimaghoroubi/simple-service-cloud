@@ -21,6 +21,6 @@ git clone https://github.com/nimaghoroubi/simple-service-cloud ~/simple-service-
 echo "clone complete! running services!"
 sudo apt -y install screen
 screen -dm python ~/simple-service-cloud/service.py
-screem -dm celery -A service.celery worker --loglevel=info
+screen -dm celery -A service.celery worker --loglevel=info
 echo "services up and running, use http://ip:5000/<item>"
 echo "ending ******************************************************************"
