@@ -17,10 +17,10 @@ sudo python -m pip install python-openstackclient &&
 echo "installing flask"
 sudo apt -y install python-flask &&
 echo "services ready, cloning repo"
-git clone https://github.com/nimaghoroubi/simple-service-cloud ~/simple-service-cloud &&
+sudo git clone https://github.com/nimaghoroubi/simple-service-cloud /simple-service-cloud &&
 echo "clone complete! running services!"
 sudo apt -y install screen
-screen -dm python ~/simple-service-cloud/service.py
-screen -dm celery -A service.celery worker --loglevel=info
+screen -dm python /simple-service-cloud/service.py &&
+(cd /simple-service-cloud && screen -dm celery -A service.celery worker --loglevel=info)
 echo "services up and running, use http://ip:5000/"
 echo "ending ******************************************************************"
