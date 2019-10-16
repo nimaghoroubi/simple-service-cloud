@@ -15,7 +15,7 @@ def twitter_api():
     ## script
     limit = 0
     #reading tarfile
-    tar = tarfile.open("data.tar.gz", "r:gz")
+    tar = tarfile.open("/media/stewie/Median/Applied Cloud Computing/Labs/Lab 3/data.tar.gz", "r:gz")
     members = tar.getmembers()
     for member in members:
         fp = tar.extractfile(member)
