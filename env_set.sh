@@ -20,7 +20,7 @@ echo "services ready, cloning repo"
 sudo git clone https://github.com/nimaghoroubi/simple-service-cloud /simple-service-cloud &&
 echo "clone complete! running services!"
 sudo apt -y install screen
-screen -dm python /simple-service-cloud/service.py &&
-(cd /simple-service-cloud && screen -dm celery -A service.celery worker --loglevel=info)
+screen -dmS service python /simple-service-cloud/service.py &&
+(cd /simple-service-cloud && screen -dmS celery celery -A service.celery worker --loglevel=info)
 echo "services up and running, use http://ip:5000/"
 echo "ending ******************************************************************"
